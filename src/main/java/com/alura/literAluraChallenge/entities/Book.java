@@ -8,6 +8,17 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", language='" + language + '\'' +
+                ", downloads=" + downloads +
+                ", author=" + author +
+                '}';
+    }
+
     private String title;
     private String language;
     private int downloads;
