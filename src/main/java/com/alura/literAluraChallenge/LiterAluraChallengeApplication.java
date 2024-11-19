@@ -41,14 +41,14 @@ public class LiterAluraChallengeApplication implements CommandLineRunner {
 				case 0:
 					System.out.print("LISTA DE LIBROS COMPLETOS: ");
 					List<Book> booksS = gutendexService.getBooksAll();
-					//bookService.saveBooks(books);
+					bookService.saveBooks(booksS);
 					booksS.forEach(book -> System.out.println(book.toString()));
 					break;
 				case 1:
 					System.out.print("Ingrese el término de búsqueda: ");
 					String query = scanner.nextLine();
 					List<Book> books = gutendexService.getBooks(query);
-					//bookService.saveBooks(books);
+					bookService.saveBooks(books);
 					books.forEach(book -> System.out.println(book.toString()));
 					break;
 				case 2:

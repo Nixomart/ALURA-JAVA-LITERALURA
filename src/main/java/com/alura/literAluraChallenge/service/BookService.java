@@ -17,7 +17,11 @@ public class BookService {
     private AuthorRepository authorRepository;
 
     public void saveBooks(List<Book> books) {
-        bookRepository.saveAll(books);
+        for (Book book : books) {
+            if (!bookRepository.existsByTitle(book.getTitle())) {
+                bookRepository.save(book);
+            }
+        }
     }
 
     public List<Book> getBooksByLanguage(String language) {
@@ -27,8 +31,6 @@ public class BookService {
         return authorRepository.findAuthorsAliveInYear(year);
     }
     public long countBooksByLanguage(String language) {
-        return bookRepository.findAll().stream()
-                .filter(book -> book.getLanguage().equalsIgnoreCase(language))
-                .count();
+        return bookRepository.countByLanguage(language);
     }
 }

@@ -18,7 +18,7 @@ public class Book {
                 ", author=" + author +
                 '}';
     }
-
+    @Column(length = 1000)
     private String title;
     private String language;
     private int downloads;
